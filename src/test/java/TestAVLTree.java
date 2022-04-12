@@ -6,6 +6,28 @@ import org.junit.runners.MethodSorters;
 public class TestAVLTree {
 
     public static boolean debug = false;
+    
+    @Test
+    public void testBalance() throws Throwable {        
+        AVLTree aVLTree0 = new AVLTree();
+        aVLTree0.insert(2);
+        aVLTree0.insert(1);
+        aVLTree0.insert(5);
+        aVLTree0.insert(7);
+        aVLTree0.insert(10);
+        org.junit.Assert.assertNotNull(aVLTree0.getRoot());
+    }
+    
+    @Test
+    public void testBalance2() throws Throwable {        
+        AVLTree aVLTree0 = new AVLTree();
+        aVLTree0.insert(7);
+        aVLTree0.insert(1);
+        aVLTree0.insert(5);
+        aVLTree0.insert(6);
+        aVLTree0.insert(10);
+        org.junit.Assert.assertNotNull(aVLTree0.getRoot());
+    }
 
     @Test
     public void test01() throws Throwable {
