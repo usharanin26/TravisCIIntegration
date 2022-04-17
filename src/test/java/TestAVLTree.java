@@ -4,11 +4,11 @@ import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestAVLTree {
-
-    public static boolean debug = false;
     
+     public static boolean debug = false;
+
     @Test
-    public void testBalance() throws Throwable {        
+    public void testBalance() throws Throwable {
         AVLTree aVLTree0 = new AVLTree();
         aVLTree0.insert(2);
         aVLTree0.insert(1);
@@ -17,9 +17,9 @@ public class TestAVLTree {
         aVLTree0.insert(10);
         org.junit.Assert.assertNotNull(aVLTree0.getRoot());
     }
-    
+
     @Test
-    public void testBalance2() throws Throwable {        
+    public void testBalance2() throws Throwable {
         AVLTree aVLTree0 = new AVLTree();
         aVLTree0.insert(7);
         aVLTree0.insert(1);
@@ -28,23 +28,27 @@ public class TestAVLTree {
         aVLTree0.insert(10);
         org.junit.Assert.assertNotNull(aVLTree0.getRoot());
     }
-    
+
     @Test
-    public void find() throws Throwable {        
+    public void find() throws Throwable {
         AVLTree aVLTree0 = new AVLTree();
         aVLTree0.insert(7);
+        aVLTree0.insert(5);
+        aVLTree0.insert(3);
+        aVLTree0.insert(1);
+        System.out.println(aVLTree0.find(3).key);
         org.junit.Assert.assertNotNull(aVLTree0.find(7));
     }
-    
+
     @Test
-    public void findNotFound() throws Throwable {        
+    public void findNotFound() throws Throwable {
         AVLTree aVLTree0 = new AVLTree();
         aVLTree0.insert(7);
         org.junit.Assert.assertNull(aVLTree0.find(15));
     }
-    
+
     @Test
-    public void delete() throws Throwable {        
+    public void delete() throws Throwable {
         AVLTree aVLTree0 = new AVLTree();
         aVLTree0.insert(7);
         aVLTree0.insert(5);
@@ -53,6 +57,17 @@ public class TestAVLTree {
         org.junit.Assert.assertNull(aVLTree0.find(7));
     }
 
+     @Test
+  public void verifyDelete_whereLeftNodeIsNotNullButRightNodeIsNull_failingTestCase(){
+    AVLTree avl = new AVLTree();
+    avl.insert(18);
+    avl.insert(13);
+    avl.insert(20);
+    avl.insert(19);
+
+    avl.delete(20);
+    org.junit.Assert.assertNull(avl.find(20));
+  }
   
 }
 
